@@ -1,5 +1,3 @@
-import org.apache.commons.lang3.SystemUtils
-
 plugins {
     idea
     java
@@ -30,16 +28,8 @@ loom {
             property("mixin.debug", "true")
             property("asmhelper.verbose", "true")
             arg("--tweakClass", "org.spongepowered.asm.launch.MixinTweaker")
+            arg("--mixin", "mixins.$modid.json")
         }
-    }
-    runConfigs {
-        "client" {
-            if (SystemUtils.IS_OS_MAC_OSX) {
-                // This argument causes a crash on macOS
-                vmArgs.remove("-XstartOnFirstThread")
-            }
-        }
-        remove(getByName("server"))
     }
     forge {
         pack200Provider.set(dev.architectury.pack200.java.Pack200Adapter())
@@ -81,7 +71,7 @@ dependencies {
     annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT")
 
     // If you don't want to log in with your real minecraft account, remove this line
-    runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.1.2")
+    //runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.1.2")
 
 }
 

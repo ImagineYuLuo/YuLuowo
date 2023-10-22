@@ -1,4 +1,4 @@
-package com.github.imagineyuluo.yuluowo.mixin;
+package me.yuluowo.mixin;
 
 import net.minecraft.client.gui.GuiMainMenu;
 import org.spongepowered.asm.mixin.Mixin;

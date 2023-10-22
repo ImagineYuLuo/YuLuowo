@@ -1,4 +1,4 @@
-package com.github.imagineyuluo.yuluowo;
+package me.yuluowo;
 
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;
