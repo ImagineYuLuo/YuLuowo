@@ -13,7 +13,7 @@ public class WayPoints {
     static int playerX, playerY, playerZ;
 
     public static void showWayPoints(Boolean Enable){
-        
+
     }
 
     public static class getWayPoints extends CommandBase {
@@ -59,9 +59,4 @@ public class WayPoints {
             return 0;
         }
     }
-
-
-
-
-
 }
