@@ -2,6 +2,7 @@ package me.yuluowo;
 
 import me.yuluowo.commands.warp.JoinDungeons;
 import me.yuluowo.commands.warp.WarpCommand;
+import me.yuluowo.events.ChatMessage;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -18,6 +19,8 @@ public class YuLuo {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
+        MinecraftForge.EVENT_BUS.register(new ChatMessage());
+
         ClientCommandHandler.instance.registerCommand(new JoinDungeons());
         ClientCommandHandler.instance.registerCommand(new WarpCommand());
     }
