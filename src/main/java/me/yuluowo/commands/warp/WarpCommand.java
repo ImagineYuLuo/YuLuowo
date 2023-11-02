@@ -1,5 +1,6 @@
 package me.yuluowo.commands.warp;
 
+import me.yuluowo.utils.ChatUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -21,15 +22,13 @@ public class WarpCommand extends CommandBase {
     @Override
     public void processCommand(ICommandSender sender, String[] args)  {
         if(args.length == 0){
-            sender.addChatMessage(new ChatComponentText("/warp dg(dungeons), cr(crimson)"));
+            ChatUtils.send("/warp dg(dungeons), cr(crimson)");
         }else switch (args[0]){
             case "dg":
                 Minecraft.getMinecraft().thePlayer.sendChatMessage("/warp dungeons");
-                System.out.println("warp dg");
                 break;
             case "cr":
                 Minecraft.getMinecraft().thePlayer.sendChatMessage("/warp crimson");
-                System.out.println("warp cr");
                 break;
         }
     }
