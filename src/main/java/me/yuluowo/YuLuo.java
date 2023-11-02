@@ -1,5 +1,6 @@
 package me.yuluowo;
 
+import me.yuluowo.commands.WayPoints;
 import me.yuluowo.commands.warp.JoinDungeons;
 import me.yuluowo.commands.warp.WarpCommand;
 import me.yuluowo.events.ChatMessage;
@@ -21,6 +22,7 @@ public class YuLuo {
     public void init(FMLInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new ChatMessage());
 
+        ClientCommandHandler.instance.registerCommand(new WayPoints.getWayPoints());
         ClientCommandHandler.instance.registerCommand(new JoinDungeons());
         ClientCommandHandler.instance.registerCommand(new WarpCommand());
     }
