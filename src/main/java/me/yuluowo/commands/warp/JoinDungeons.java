@@ -1,5 +1,6 @@
 package me.yuluowo.commands.warp;
 
+import me.yuluowo.utils.ChatUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -22,7 +23,7 @@ public class JoinDungeons extends CommandBase {
     @Override
     public void processCommand(ICommandSender sender, String[] args) throws CommandException {
         if(args.length == 0){
-            sender.addChatMessage(new ChatComponentText("/j [dungeons floor], ex: /j f7"));
+            ChatUtils.send("/j [dungeons floor], ex: /j f7");
         }else {
             String dungeonMode = "catacombs";
             if(args[0].startsWith("m")){
