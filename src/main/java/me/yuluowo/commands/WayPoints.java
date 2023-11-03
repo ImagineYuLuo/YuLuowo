@@ -10,10 +10,12 @@ import net.minecraft.util.EnumChatFormatting;
 
 public class WayPoints {
 
-    static int playerX, playerY, playerZ;
+    public static int playerX, playerY, playerZ;
+    static int checkNumber = 0;
 
-    public static void showWayPoints(Boolean Enable){
-
+    public static boolean showWayPoint(){
+        // 1 = Enable, 0 = Disbale
+        return checkNumber == 1;
     }
 
     public static class getWayPoints extends CommandBase {
@@ -32,25 +34,33 @@ public class WayPoints {
         public void processCommand(ICommandSender sender, String[] args) throws CommandException {
             if(args.length == 0){
                 //set waypoint here (x, y, z)
-                BlockPos blockPos = Minecraft.getMinecraft().thePlayer.getPosition();
+                Minecraft mc = Minecraft.getMinecraft();
+                BlockPos blockPos = mc.thePlayer.getPosition();
                 playerX = blockPos.getX();
                 playerY = blockPos.getY();
                 playerZ = blockPos.getZ();
-
+                checkNumber = 1;
+                //System.out.println(playerX + " " + playerY + " " + playerZ);
             }else switch (args[0]){
                 case "help":
                     //help
+                    ChatUtils.send("=== WayPoint ===\n" +
+                            "/waypoint (Set the current player's position.)\n" +
+                            "/waypoint on / enable (Show your setting waypoint gui.)\n" +
+                            "/waypoint off / disable (Close your setting waypoint gui.)");
                     break;
                 case "on":
                 case "enable":
-                    showWayPoints(true);
+                    checkNumber = 1;
+                    ChatUtils.send("Show the waypoint!");
                     break;
                 case "off":
                 case "disable":
-                    showWayPoints(false);
+                    checkNumber = 0;
+                    ChatUtils.send("Close the waypoint!");
                     break;
                 default:
-                    ChatUtils.send(EnumChatFormatting.RED + "Unknown Command ...");
+                    ChatUtils.send("Unknown Command ...");
             }
         }
 
@@ -58,5 +68,9 @@ public class WayPoints {
         public int getRequiredPermissionLevel(){
             return 0;
         }
+
     }
+
+
+
 }
