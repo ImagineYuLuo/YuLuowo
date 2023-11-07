@@ -44,7 +44,7 @@ public class WayPoints {
             }else switch (args[0]){
                 case "help":
                     //help
-                    ChatUtils.send("=== WayPoint ===\n" +
+                    ChatUtils.send("===== WayPoint =====\n" +
                             "/waypoint (Set the current player's position.)\n" +
                             "/waypoint on / enable (Show your setting waypoint gui.)\n" +
                             "/waypoint off / disable (Close your setting waypoint gui.)");
