@@ -8,12 +8,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ChatMessage {
 
     @SubscribeEvent
-    public void onChatMessage(ClientChatReceivedEvent event){
-        String message = event.message.getUnformattedText().toLowerCase();
-        if(message.contains("your mining speed boost has expired!")){
-            Minecraft.getMinecraft().ingameGUI.displayTitle(EnumChatFormatting.RED + "Mining Ability Has Expired !", "", 0, 0, 0);
+    public void miningBoost(ClientChatReceivedEvent event){
+        String message = event.message.getFormattedText();
+        if(message.contains("Mining Speed Boost is now available.")){
+            Minecraft.getMinecraft().ingameGUI.displayTitle(EnumChatFormatting.RED + "Mining Boost Ready !", "", 0, 0, 0);
         }
     }
-
 
 }
