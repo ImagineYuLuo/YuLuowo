@@ -1,5 +1,6 @@
 package me.yuluowo;
 
+import me.yuluowo.commands.PartyTransfer;
 import me.yuluowo.commands.WayPoints;
 import me.yuluowo.commands.warp.JoinDungeons;
 import me.yuluowo.commands.warp.WarpCommand;
@@ -31,5 +32,6 @@ public class YuLuo {
         ClientCommandHandler.instance.registerCommand(new WayPoints.getWayPoints());
         ClientCommandHandler.instance.registerCommand(new JoinDungeons());
         ClientCommandHandler.instance.registerCommand(new WarpCommand());
+        ClientCommandHandler.instance.registerCommand(new PartyTransfer());
     }
 }
