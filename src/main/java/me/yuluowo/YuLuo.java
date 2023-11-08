@@ -1,19 +1,16 @@
 package me.yuluowo;
 
 import me.yuluowo.commands.PartyTransfer;
+import me.yuluowo.commands.DisplayItemName;
 import me.yuluowo.commands.WayPoints;
 import me.yuluowo.commands.warp.JoinDungeons;
 import me.yuluowo.commands.warp.WarpCommand;
 import me.yuluowo.events.ChatMessage;
 import me.yuluowo.renders.RenderUtils;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 @Mod(modid = YuLuo.MOD_ID,name = YuLuo.MOD_NAME, version = YuLuo.VERSION, useMetadata=true)
 public class YuLuo {
@@ -33,5 +30,6 @@ public class YuLuo {
         ClientCommandHandler.instance.registerCommand(new JoinDungeons());
         ClientCommandHandler.instance.registerCommand(new WarpCommand());
         ClientCommandHandler.instance.registerCommand(new PartyTransfer());
+        ClientCommandHandler.instance.registerCommand(new DisplayItemName());
     }
 }
