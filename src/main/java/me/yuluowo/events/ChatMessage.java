@@ -10,7 +10,7 @@ public class ChatMessage {
     @SubscribeEvent
     public void miningBoost(ClientChatReceivedEvent event){
         String message = event.message.getFormattedText();
-        if(message.contains("Mining Speed Boost is now available.")){
+        if(message.equals("Mining Speed Boost is now available.")){
             Minecraft.getMinecraft().ingameGUI.displayTitle(EnumChatFormatting.RED + "Mining Boost Ready !", "", 0, 0, 0);
         }
     }
