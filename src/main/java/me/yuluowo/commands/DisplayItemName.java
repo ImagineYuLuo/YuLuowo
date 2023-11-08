@@ -25,7 +25,7 @@ public class DisplayItemName extends CommandBase {
         Minecraft mc = Minecraft.getMinecraft();
         ChatUtils.send(EnumChatFormatting.GOLD + "You're holding" +
                 EnumChatFormatting.LIGHT_PURPLE + "[" +
-                EnumChatFormatting.BLACK + Utils.heldItem() +
+                EnumChatFormatting.AQUA + Utils.heldItem() +
                 EnumChatFormatting.LIGHT_PURPLE + "]" +
                 EnumChatFormatting.GOLD + "right now.");
     }
