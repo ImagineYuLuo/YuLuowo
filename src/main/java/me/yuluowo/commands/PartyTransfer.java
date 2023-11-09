@@ -12,7 +12,7 @@ public class PartyTransfer extends CommandBase {
 
     @Override
     public String getCommandName() {
-        return "pt";
+        return "ptr";
     }
 
     @Override
@@ -23,7 +23,7 @@ public class PartyTransfer extends CommandBase {
     @Override
     public void processCommand(ICommandSender sender, String[] args) throws CommandException {
         if(args.length == 0){
-            ChatUtils.send(EnumChatFormatting.RED + "/pt <name>");
+            ChatUtils.send(EnumChatFormatting.RED + "/ptr <name>");
         }else {
             Minecraft.getMinecraft().thePlayer.sendChatMessage("/party transfer " + args[0]);
         }
