@@ -26,10 +26,11 @@ public class YuLuo {
         MinecraftForge.EVENT_BUS.register(new ChatMessage());
         MinecraftForge.EVENT_BUS.register(new RenderUtils());
 
-        ClientCommandHandler.instance.registerCommand(new WayPoints.getWayPoints());
         ClientCommandHandler.instance.registerCommand(new JoinDungeons());
         ClientCommandHandler.instance.registerCommand(new WarpCommand());
         ClientCommandHandler.instance.registerCommand(new PartyTransfer());
         ClientCommandHandler.instance.registerCommand(new DisplayItemName());
+
+        ClientCommandHandler.instance.registerCommand(new WayPoints.getWayPoints());
     }
 }
