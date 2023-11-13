@@ -1,6 +1,7 @@
 package me.yuluowo.commands;
 
 import me.yuluowo.utils.ChatUtils;
+import me.yuluowo.utils.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -22,10 +23,14 @@ public class PartyTransfer extends CommandBase {
 
     @Override
     public void processCommand(ICommandSender sender, String[] args) throws CommandException {
-        if(args.length == 0){
-            ChatUtils.send(EnumChatFormatting.RED + "/ptr <name>");
-        }else {
-            Minecraft.getMinecraft().thePlayer.sendChatMessage("/party transfer " + args[0]);
+        if(Utils.isOnHypixel()){
+            if(args.length == 0){
+                ChatUtils.send(EnumChatFormatting.RED + "/ptr <name>");
+            }else {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/party transfer " + args[0]);
+            }
+        }else{
+            ChatUtils.send(EnumChatFormatting.RED + "You are not in hypixel.");
         }
     }
 
