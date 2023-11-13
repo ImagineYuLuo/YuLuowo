@@ -1,15 +1,27 @@
 package me.yuluowo.utils;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.scoreboard.ScoreObjective;
+import net.minecraft.scoreboard.Scoreboard;
 import net.minecraft.util.EnumChatFormatting;
 
 public class Utils {
 
+    private static final Minecraft mc = Minecraft.getMinecraft();
+
     public static boolean isOnHypixel(){
-        Minecraft mc = Minecraft.getMinecraft();
-        //mc.thePlayer.getHeldItem().getDisplayName()
         if(mc != null && mc.theWorld != null && !mc.isSingleplayer()){
-            return mc.getCurrentServerData().serverIP.toLowerCase().contains("hypixel");
+            return mc.getCurrentServerData().serverIP.equalsIgnoreCase("hypixel");
+        }
+        return false;
+    }
+
+    public static boolean isOnSkyblock(){
+        if(mc.theWorld != null && isOnHypixel()){
+            Scoreboard scoreboard = mc.theWorld.getScoreboard();
+            ScoreObjective scoreObjective = scoreboard.getObjectiveInDisplaySlot(1);
+            String title = EnumChatFormatting.getTextWithoutFormattingCodes(scoreObjective.getDisplayName());
+            return title.equals("SKYBLOCK");
         }
         return false;
     }
@@ -39,7 +51,7 @@ public class Utils {
     };
 
     public static String heldItem(){
-        return Minecraft.getMinecraft().thePlayer.getHeldItem().getDisplayName();
+        return mc.thePlayer.getHeldItem().getDisplayName();
     }
 
 
