@@ -23,7 +23,7 @@ public class PartyTransfer extends CommandBase {
 
     @Override
     public void processCommand(ICommandSender sender, String[] args) throws CommandException {
-        if(Utils.isOnHypixel()){
+        if(Utils.isOnSkyblock()){
             if(args.length == 0){
                 ChatUtils.send(EnumChatFormatting.RED + "/ptr <name>");
             }else {
