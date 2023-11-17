@@ -20,6 +20,7 @@ public class RenderUtils {
                 fontRenderer.drawString("Waypoint set at : " + x + " " + y + " " + z, 5, 5, 0);
             }else {
                 fontRenderer.drawString(null, 5, 5, 0);
+
             }
         }
     }
