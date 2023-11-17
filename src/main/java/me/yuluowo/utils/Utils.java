@@ -17,6 +17,7 @@ public class Utils {
     }
 
     public static boolean isOnSkyblock(){
+        //Add this to ScoreboardUtils.java
         if(mc.theWorld != null && isOnHypixel()){
             Scoreboard scoreboard = mc.theWorld.getScoreboard();
             ScoreObjective scoreObjective = scoreboard.getObjectiveInDisplaySlot(1);
