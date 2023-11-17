@@ -1,5 +1,6 @@
 package me.yuluowo;
 
+import me.yuluowo.commands.Config;
 import me.yuluowo.commands.PartyTransfer;
 import me.yuluowo.commands.DisplayItemName;
 import me.yuluowo.commands.WayPoints;
@@ -7,6 +8,7 @@ import me.yuluowo.commands.warp.JoinDungeons;
 import me.yuluowo.commands.warp.WarpCommand;
 import me.yuluowo.events.ChatMessage;
 import me.yuluowo.renders.RenderUtils;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -20,12 +22,15 @@ public class YuLuo {
     public static final String MOD_NAME = "YuLuoMod";
     public static final String VERSION = "1.8.9";
 
+    public static GuiScreen gui = null;
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new ChatMessage());
         MinecraftForge.EVENT_BUS.register(new RenderUtils());
+        MinecraftForge.EVENT_BUS.register(new Config());
 
+        ClientCommandHandler.instance.registerCommand(new Config());
         ClientCommandHandler.instance.registerCommand(new JoinDungeons());
         ClientCommandHandler.instance.registerCommand(new WarpCommand());
         ClientCommandHandler.instance.registerCommand(new PartyTransfer());
