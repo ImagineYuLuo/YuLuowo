@@ -10,7 +10,6 @@ import net.minecraft.util.EnumChatFormatting;
 
 public class PartyTransfer extends CommandBase {
 
-
     @Override
     public String getCommandName() {
         return "ptr";
