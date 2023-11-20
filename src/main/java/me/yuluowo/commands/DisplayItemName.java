@@ -22,13 +22,18 @@ public class DisplayItemName extends CommandBase {
 
     @Override
     public void processCommand(ICommandSender sender, String[] args) throws CommandException {
-        Minecraft mc = Minecraft.getMinecraft();
-        ChatUtils.send(EnumChatFormatting.GOLD + mc.thePlayer.getName() +
-                EnumChatFormatting.WHITE + " is holding " +
-                EnumChatFormatting.GRAY + "[" +
-                EnumChatFormatting.AQUA + Utils.heldItem() +
-                EnumChatFormatting.GRAY + "]" +
-                EnumChatFormatting.GOLD + " right now.");
+        if(Utils.heldItem() != null){
+            Minecraft mc = Minecraft.getMinecraft();
+            ChatUtils.send(EnumChatFormatting.GOLD + mc.thePlayer.getName() +
+                    EnumChatFormatting.WHITE + " is holding " +
+                    EnumChatFormatting.GRAY + "[" +
+                    EnumChatFormatting.AQUA + Utils.heldItem() +
+                    EnumChatFormatting.GRAY + "]" +
+                    EnumChatFormatting.GOLD + " right now.");
+        }else{
+            ChatUtils.send(EnumChatFormatting.RED + "You don't hold the item.");
+        }
+
     }
 
     //Giving Permission To Use Commands
