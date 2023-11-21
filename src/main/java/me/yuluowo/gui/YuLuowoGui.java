@@ -1,44 +1,44 @@
 package me.yuluowo.gui;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.item.ItemStack;
+import net.minecraft.client.gui.*;
+
 
 import java.io.IOException;
 
 public class YuLuowoGui extends GuiScreen {
 
+    private GuiButton btn_OnOff;
     private GuiButton btn_Close;
+
+    private static final int btn_width = 100;
+    private static final int btn_height = 20;
 
     @Override
     public void initGui() {
-        super.initGui();
-        // drawRect mean background
         ScaledResolution resolution = new ScaledResolution(Minecraft.getMinecraft());
         this.width = resolution.getScaledWidth();
         this.height = resolution.getScaledHeight();
         int x = (this.width) / 2;
         int y = (this.height) / 2;
-        this.buttonList.add(btn_Close = new GuiButton(0, 5, 5, 80, 20, "Close"));
-        //this.buttonList.add(btn_Close = new GuiButton(0, x - 200 / 2, y - 20 / 2, "Close"));
+
+        this.buttonList.add(btn_OnOff = new GuiButton(0, x - btn_width / 2, y - btn_height / 2 + 50, btn_width, btn_height, "On"));
+        this.buttonList.add(btn_Close = new GuiButton(1, x - btn_width / 2, y - btn_height / 2, btn_width, btn_height, "Close"));
+        super.initGui();
     }
 
     @Override
     protected void actionPerformed(GuiButton button) throws IOException {
-        if(button == btn_Close){
+        if (button == btn_Close) {
             mc.thePlayer.closeScreen();
+        }else if (button == btn_OnOff) {
+            btn_OnOff.displayString = ((btn_OnOff.displayString.equals("On")) ? "Off" : "On");
         }
     }
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         drawDefaultBackground();
-
-
-
         super.drawScreen(mouseX, mouseY, partialTicks);
     }
 
@@ -50,6 +50,6 @@ public class YuLuowoGui extends GuiScreen {
 
     @Override
     public boolean doesGuiPauseGame() {
-        return true;
+        return false;
     }
 }
