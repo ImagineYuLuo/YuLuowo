@@ -8,8 +8,4 @@ public class Button extends GuiButton {
         super(buttonId, x, y, widthIn, heightIn, buttonText);
     }
 
-
-
-
-
 }
