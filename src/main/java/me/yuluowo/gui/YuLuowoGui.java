@@ -19,6 +19,8 @@ public class YuLuowoGui extends GuiScreen {
     private static final int btn_width = 100;
     private static final int btn_height = 20;
 
+    private final int scale = 70;
+
     @Override
     public void initGui() {
         ScaledResolution resolution = new ScaledResolution(Minecraft.getMinecraft());
@@ -26,7 +28,6 @@ public class YuLuowoGui extends GuiScreen {
         this.height = resolution.getScaledHeight();
         int x = (this.width) / 2;
         int y = (this.height) / 2;
-
         this.buttonList.add(btn_OnOff = new GuiButton(0, x - btn_width / 2, y - btn_height / 2 + 50, btn_width, btn_height, "On"));
         this.buttonList.add(btn_Close = new GuiButton(1, x - btn_width / 2, y - btn_height / 2, btn_width, btn_height, "Close"));
         super.initGui();
@@ -43,18 +44,10 @@ public class YuLuowoGui extends GuiScreen {
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-        drawDefaultBackground();
-        GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-        GL11.glLineWidth(1.0f);
-        GL11.glEnable(GL11.GL_BLEND);
-        GL11.glEnable(GL11.GL_TEXTURE_2D);
-
-        GlStateManager.color(1.0f, 1.0f, 1.0f);
-
-        GL11.glDisable(GL11.GL_BLEND);
-        GL11.glDisable(GL11.GL_TEXTURE_2D);
-
+        Gui.drawRect(scale, scale, width - scale, height - scale, new Color(0, 0, 0, 150).getRGB());
         super.drawScreen(mouseX, mouseY, partialTicks);
+
+        RenderUtils.drawFontCenter("YuLuoAddons", width / 2, scale, 0xFFFFFF);
     }
 
     @Override
