@@ -15,4 +15,12 @@ public class ChatMessage {
         }
     }
 
+    @SubscribeEvent
+    public void autoReady(ClientChatReceivedEvent event){
+        String message = event.message.getFormattedText();
+        if(message.equalsIgnoreCase("r?") || message.equalsIgnoreCase("ready?")){
+            Minecraft.getMinecraft().thePlayer.sendChatMessage("r");
+        }
+    }
+
 }
