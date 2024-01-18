@@ -7,6 +7,7 @@ import net.minecraft.util.EnumChatFormatting;
 
 public class Utils {
 
+    public static String scoreBoardTitle;
     private static final Minecraft mc = Minecraft.getMinecraft();
 
     public static boolean isOnHypixel(){
@@ -17,12 +18,12 @@ public class Utils {
     }
 
     public static boolean isOnSkyblock(){
-        //Add this to ScoreboardUtils.java
-        if(mc.theWorld != null && isOnHypixel()){
+        Minecraft mc = Minecraft.getMinecraft();
+        if(Utils.isOnHypixel()){
             Scoreboard scoreboard = mc.theWorld.getScoreboard();
             ScoreObjective scoreObjective = scoreboard.getObjectiveInDisplaySlot(1);
-            String title = EnumChatFormatting.getTextWithoutFormattingCodes(scoreObjective.getDisplayName());
-            return title.equals("SKYBLOCK");
+            scoreBoardTitle = scoreObjective.getDisplayName();
+            return scoreBoardTitle.contains("SKYBLOCK");
         }
         return false;
     }
@@ -50,14 +51,5 @@ public class Utils {
         EnumChatFormatting.RED + EnumChatFormatting.BOLD.toString() + "SPECIAL",
         EnumChatFormatting.RED + EnumChatFormatting.BOLD.toString() + "VERY SPECIAL"
     };
-
-    public static String heldItem(){
-        return mc.thePlayer.getHeldItem().getDisplayName();
-    }
-
-
-
-
-
 
 }
