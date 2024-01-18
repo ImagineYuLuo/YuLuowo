@@ -4,9 +4,11 @@ import me.yuluowo.commands.Config;
 import me.yuluowo.commands.PartyTransfer;
 import me.yuluowo.commands.DisplayItemName;
 import me.yuluowo.commands.WayPoints;
+import me.yuluowo.commands.macros.Mining;
 import me.yuluowo.commands.warp.JoinDungeons;
 import me.yuluowo.commands.warp.WarpCommand;
 import me.yuluowo.events.ChatMessage;
+import me.yuluowo.module.macros.MiningMacro;
 import me.yuluowo.renders.RenderUtils;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.client.ClientCommandHandler;
@@ -29,12 +31,14 @@ public class YuLuo {
         MinecraftForge.EVENT_BUS.register(new ChatMessage());
         MinecraftForge.EVENT_BUS.register(new RenderUtils());
         MinecraftForge.EVENT_BUS.register(new Config());
+        MinecraftForge.EVENT_BUS.register(new MiningMacro());
 
         ClientCommandHandler.instance.registerCommand(new Config());
         ClientCommandHandler.instance.registerCommand(new JoinDungeons());
         ClientCommandHandler.instance.registerCommand(new WarpCommand());
         ClientCommandHandler.instance.registerCommand(new PartyTransfer());
         ClientCommandHandler.instance.registerCommand(new DisplayItemName());
+        ClientCommandHandler.instance.registerCommand(new Mining());
 
         ClientCommandHandler.instance.registerCommand(new WayPoints.getWayPoints());
     }
